@@ -5,14 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MyMap <K,V>{
-    @Override
-    public String toString() {
-        return "MyMap{" +
-                "bucket=" + bucket +
-                '}';
-    }
-
-    List<MapNode<K,V>> bucket;
+List<MapNode<K,V>> bucket;
 private int capacity ;
 private int size;
 private final int  INITIAL_CAPACITY=5;
@@ -23,6 +16,13 @@ private final int  INITIAL_CAPACITY=5;
         for(int i=0;i<capacity;i++)
             bucket.add(null);
     }
+     @Override
+    public String toString() {
+        return "MyMap{" +
+                "bucket=" + bucket +
+                '}';
+    }
+    
     private int getBucketIndex(K key){
         int hashCode =key.hashCode();
         return hashCode%capacity;
